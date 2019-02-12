@@ -1,0 +1,11 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Enlaces\\": "class/",
+      "PhpOffice\\PhpSpreadsheet\\": "phpoffice/phpspreadsheet/src/PhpSpreadsheet"
+    }
+  },
+  "require": {
+    "phpoffice/phpspreadsheet": "^1.5"
+  }
+}
