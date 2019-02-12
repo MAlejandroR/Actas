@@ -59,7 +59,7 @@ class Alumno
 
 
         //Trabajo sobre notas_actilla
-        //RF1 buscar alumno de notas_actilla (Andreu Rubio, José Antonio)en notas_certificado(JOSÉ ANTONIO ANDREU RUBIO)
+        //RF1 buscar alumno de notas_actilla 
         //RF2Recorriendo el alumno en notas_certificado recojo cada código de módulo y busco sus siglas
         //RF3 Aporto la nota en notas_actilla.
 
@@ -72,29 +72,15 @@ class Alumno
             $alumno_apellido_nombre = next($this->notas_actilla);
             $alumno_apellido_nombre = key($this->notas_actilla);
 
-            //var_dump($alumno_apellido_nombre);
+           
     */
             $alumno_apellido_nombre = trim(str_replace("(Rep)", "", $alumno_apellido_nombre));
             $alumno_certificado = $this->buscar($alumno_apellido_nombre);
 
-            //var_dump($alumno_certificado);
+            
             //Notas de certificado de un alumno de la actilla
             $notas_certificado_alumno = $this->notas_certificado[$alumno_certificado];
 
-            //var_dump($this);
-            //Recorroi todos los módulos de la nota de la actilla de cada alumno
-            /**
-             * if (strpos($alumno_apellido_nombre, "Andreu") !== false) {
-             *var_dump($alumno_apellido_nombre);
-             *var_dump($alumno_certificado);
-             *
-             *var_dump($notas_certificado_alumno);
-             *var_dump($notas_actilla_alumno);
-             * }
-             */
-            //var_dump($notas_certificado_alumno);
-            //Verificado todos los alumnos con 15 notas
-            //var_dump($modulo);
             foreach ($notas_actilla_alumno as $sigla_modulo => $nota) {
                 //var_dump($nota);
 
@@ -137,8 +123,7 @@ class Alumno
             $nom = trim($nom);
         }
         //vOLVEMOS A INSISTIR POR UN CASO DEL TIPO
-        //JORGE RAULIER FERNANDEZ DE LA PRADILLA => que se acorta a
-        //JORGE RAULIER FERNANDEZ DE
+      
         //
         if (is_null($this->notas_certificado[$nom])) {
             $nombre = explode(" ", $nom);
@@ -154,9 +139,9 @@ class Alumno
 
     /**
      * @param $nombre algo del tipo
-     *       Rodríguez    Dilla,  Pablo
+     *       Rodríguez    Ruiz,  Fernando
      * @retuer $nom   el nombre ordenado en mayúsculas y con un caracter en blanco entre cada identificador del nombre
-     *       PABLO RODRIGUEZ DILLA
+     *       FERNANDO RUIZ RODRIGUEZ
      *
      */
     private
@@ -201,13 +186,13 @@ class Alumno
      * La celda tiene siempre este formato
      *
      * --------------------------------------------------------------------------------------
-     * Dña. CARMEN PARICIO HERNANDEZ, Secretaria del Centro Público Integrado de Formación Profesional LOS ENLACES
+     * Dña. xxxxxxxxxxxxxxxx, Secretaria del Centro Público Integrado de Formación Profesional LOS ENLACES
      * con código de centro 50010314, dirección Cl. Jarque De Moncayo, 10, 50012 Zaragoza (Zaragoza), teléfono 976300804 y
      * correo electrónico cpilosenlaces@educa.aragon.es
      *
      * CERTIFICA:
      *
-     * Que JOSÉ ANTONIO ANDREU RUBIO con DNI 76920305W, nacido el 11 de febrero de 1986, está matriculado en el centro
+     * Que xxxxxxxxxxxxxxxx con DNI xxxxxxxxxxxxx, nacido el xx de febrero de 1986, está matriculado en el centro
      * LOS ENLACES en DESARROLLO DE APLICACIONES WEB DE CICLOS FORMATIVOS DE FORMACIÓN
      * PROFESIONAL DE GRADO SUPERIOR, regulado por el Real Decreto 686/2010 (BOE 12/06/2010) y por Orden de
      * 08/07/2011 (BOA 28/07/2011), y que:"
@@ -222,16 +207,16 @@ class Alumno
      *                          en la columna H la nota de ese módulo
      * Ejemplos:
      * ----------------------------------------------------------------------------
-     * 0487    Entornos de desarrollo (1º)                                    7
+     * 0487    Entornos de desarrollo (1º)                                    9
      * 0617    Formación y orientación laboral (1º)                            CV-5
-     * 0373    Lenguajes de marcas y sistemas de gestión de información (1º)    8
-     * 0483    Sistemas informáticos (1º)                                        7
+     * 0373    Lenguajes de marcas y sistemas de gestión de información (1º)    9
+     * 0483    Sistemas informáticos (1º)                                        9
      * ----------------------------------------------------------------------------
      *
      * La  primera fila que no tiene código empieza siempre por Y
      *
      * ----------------------------------------------------------------------------
-     * Y, con fecha 15 de noviembre de 2018, ha hecho la solicitud para traslado de expediente u otros efectos.
+     * Y, con fecha XX de noviembre de 2018, ha hecho la solicitud para traslado de expediente u otros efectos.
      * ----------------------------------------------------------------------------
      *
      */
