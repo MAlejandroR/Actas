@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo tail -f /home/manuel/web/manuel.infenlaces.com/logs/manuel.infenlaces.com.error.log
+ 
