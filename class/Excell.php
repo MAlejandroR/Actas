@@ -39,7 +39,11 @@ class Excell
             'right' => ['borderStyle' => Borde::BORDER_THIN,]
         ]];
 
+<<<<<<< HEAD
         //Contamos cuántas columnas vamos a tener
+=======
+        //Contamos cuantas columnas vamos a tener
+>>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
         //número de módulos +1 de números +1 de nombres.
         $len_col = sizeof($modulos->getSiglas()) + 2;//
 
@@ -89,6 +93,7 @@ class Excell
             self::$ws->getCellByColumnAndRow($n, $fila)->setValue($datos['sigla']);
         }
         self::$ws->getStyleByColumnAndRow($n + 1, $fila)->applyFromArray($style);
+<<<<<<< HEAD
 
         if (!in_array("PRY", $m)) {
             self::$ws->getCellByColumnAndRow($n + 1, $fila)->setValue('PRY');//Agrego proyecto explícitamente
@@ -97,13 +102,22 @@ class Excell
         if (!in_array("FCT", $m))
             $m[] = "FCT";
 
+=======
+        self::$ws->getCellByColumnAndRow($n + 1, $fila)->setValue('PRY');//Agrego proyecto explícitamente
+        $m[] = "PRY";
+        $m[] = "FCT";
+>>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
         //ya que este módulo no aparece en el certificado de dónde saco los módulos
         $n = $fila;
         //var_dump($alumnos->getExpediente());
         //var_dump($m);
         foreach ($alumnos->getExpediente() as $alumno => $notas) {
+<<<<<<< HEAD
        //     var_dump($notas);
        //     var_dump(alumno);
+=======
+            //var_dump($notas);
+>>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
             $n++;
             //self::$ws->getCellByColumnAndRow(1, $n)->setValue($datos['sigla']);
             self::$ws->getStyleByColumnAndRow(1, $n)->applyFromArray($style);
@@ -111,7 +125,11 @@ class Excell
             self::$ws->getStyleByColumnAndRow(2, $n)->applyFromArray($style);
 
             self::$ws->getCellByColumnAndRow(2, $n)->setValue($alumno);
+<<<<<<< HEAD
 
+=======
+            //var_dump($notas);
+>>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
             //var_dump($m);
 
             foreach ($notas as $cod_modulo => $nota) {
@@ -195,18 +213,28 @@ class Excell
             self::$ws->getRowDimension($n, true)->setRowHeight(18);
         }
 
+<<<<<<< HEAD
         //Contamos cuantos módulos tenemos alumnos hay matriculados de cada módulo
+=======
+        //Contamos cuantos módulos tenemos alumnos hay matriculados de cada móduloç
+
+>>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
 
         for ($f = 3; $f <= $filas; $f++) {
             //Intentar contar número de módulos matriculados
             for ($c = 3; $c <= $columns; $c++) {
                 $color = self::$ws->getStyleByColumnAndRow($c, $f)->getFill();
                 $col = $color->getEndColor()->getRGB();
+<<<<<<< HEAD
                 if ($col == "FFFFFF") { //Porque está matriculado en ese módulo
                     $num_modulos_matriculados[$c]++;
                     $matriculas_a[$f]++;
                 }
 
+=======
+                if ($col == "FFFFFF") //Porque está matriculado en ese módulo
+                    $num_modulos_matriculados[$c]++;
+>>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
                 //if color FFFFFF Matriculado
             }
         }
@@ -241,6 +269,7 @@ class Excell
                 ],
             ],
         ];
+<<<<<<< HEAD
 
         //Escribimos una nueva fila con el total de cada matrícula
 
@@ -248,11 +277,21 @@ class Excell
         self::$ws->mergeCells("A" . ($filas + 1) . ":B" . ($filas + 1));
         self::$ws->getStyleByColumnAndRow(1, ($filas + 1))->applyFromArray($styleArray);
         self::$ws->getCellByColumnAndRow(1, ($filas + 1))->SetValue("Total Matrículas");
+=======
+        self::$ws->getRowDimension($filas+1, true)->setRowHeight(18);
+
+        self::$ws->mergeCells("A".($filas+1).":B".($filas+1));
+        self::$ws->getStyleByColumnAndRow(1, ($filas + 1))->applyFromArray($styleArray);
+        self::$ws->getCellByColumnAndRow(1, ($filas + 1))->SetValue("Total Matrículas");
+
+
+>>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
         foreach ($num_modulos_matriculados as $num_modulo => $num_matriculas) {
 
             self::$ws->getStyleByColumnAndRow($num_modulo, ($filas + 1))->applyFromArray($styleArray);
             self::$ws->getCellByColumnAndRow($num_modulo, ($filas + 1))->setValue($num_matriculas);
         }
+<<<<<<< HEAD
         //Escribimos una nueva columna  con el total de cada matrícula
         self::$ws->getColumnDimension(chr(ord('A')+$columns ), true)->setWidth(3);
         self::$ws->getStyleByColumnAndRow(columns, 1)->applyFromArray($styleArray);
@@ -263,11 +302,14 @@ class Excell
              self::$ws->getCellByColumnAndRow($columns, ($f))->setValue($matriculas_a[$f]);
          }
 
+=======
+>>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
 
         self::$ws->freezePane("A3");
 
 
         self::$ws->setTitle("Acta notas");
+<<<<<<< HEAD
         $nombre = "$titulo.xls";
         $nombre = str_replace($nombre, " ", "_");
         if (is_null($nombre))
@@ -275,6 +317,11 @@ class Excell
 
         header('Content-Type: application/vnd.ms-excel');
         header("Content-Disposition: attachment;filename=$nombre.xls");
+=======
+
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="01simple.xls"');
+>>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
         $writer = Estilo::createWriter(self::$spreadsheet, 'Xls');
         ob_end_clean();
         ob_start();
