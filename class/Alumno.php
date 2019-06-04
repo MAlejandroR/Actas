@@ -59,11 +59,9 @@ class Alumno
 
 
         //Trabajo sobre notas_actilla
-<<<<<<< HEAD
+
         //RF1 buscar alumno de notas_actilla (Andreu Rubio, José Antonio)en notas_certificado(JOSÉ ANTONIO ANDREU RUBIO)
-=======
-        //RF1 buscar alumno de notas_actilla 
->>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
+        //RF1 buscar alumno de notas_actilla
         //RF2Recorriendo el alumno en notas_certificado recojo cada código de módulo y busco sus siglas
         //RF3 Aporto la nota en notas_actilla.
 
@@ -76,7 +74,6 @@ class Alumno
             $alumno_apellido_nombre = next($this->notas_actilla);
             $alumno_apellido_nombre = key($this->notas_actilla);
 
-<<<<<<< HEAD
             //var_dump($alumno_apellido_nombre);
     */
             $alumno_apellido_nombre = trim(str_replace("(Rep)", "", $alumno_apellido_nombre));
@@ -103,9 +100,8 @@ class Alumno
             //var_dump($notas_certificado_alumno);
             //Verificado todos los alumnos con 15 notas
             //var_dump($modulo);
-=======
-           
-    */
+
+
             $alumno_apellido_nombre = trim(str_replace("(Rep)", "", $alumno_apellido_nombre));
             $alumno_certificado = $this->buscar($alumno_apellido_nombre);
 
@@ -113,7 +109,7 @@ class Alumno
             //Notas de certificado de un alumno de la actilla
             $notas_certificado_alumno = $this->notas_certificado[$alumno_certificado];
 
->>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
+
             foreach ($notas_actilla_alumno as $sigla_modulo => $nota) {
                 //var_dump($nota);
 
@@ -141,30 +137,14 @@ class Alumno
         //var_dump($this->expediente);
     }
 
-<<<<<<< HEAD
 
-    /**
-     * @param $alumno_apellido_nombre Nombre del actilla (apellido, nombre)
-     * @return string
-     */
-    private  function buscar($alumno_apellido_nombre)
-    {
-        //var_dump($alumno_apellido_nombre);
-        //Lo convertimos en nombre apellido sin comas
-        $nom = $this->ordena_nombre($alumno_apellido_nombre);
-        //
-        //En este caso hacemos un intento quitando el segundo apellido
-       // var_dump($this->notas_certificado);
-        if (is_null($this->notas_certificado[$nom])) {
 
-=======
     private
     function buscar($alumno_apellido_nombre)
     {
         $nom = $this->ordena_nombre($alumno_apellido_nombre);
         //En este caso hacemos un intento quitando el segundo apellido
         if (is_null($this->notas_certificado[$nom])) {
->>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
             $nombre = explode(" ", $nom);
             $len = sizeof($nombre);
             $nom = "";
@@ -172,54 +152,26 @@ class Alumno
                 $nom .= $nombre[$n] . " ";
             }
             $nom = trim($nom);
-<<<<<<< HEAD
 
         }
         //vOLVEMOS A INSISTIR POR UN CASO DEL TIPO
         //JORGE RAULIER FERNANDEZ DE LA PRADILLA => que se acorta a
         //JORGE RAULIER FERNANDEZ DE
-=======
-        }
-        //vOLVEMOS A INSISTIR POR UN CASO DEL TIPO
-      
->>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
-        //
-        if (is_null($this->notas_certificado[$nom])) {
-            $nombre = explode(" ", $nom);
-            $len = sizeof($nombre);
-            $nom = "";
-            for ($n = 0; $n < $len - 1; $n++) {
-                $nom .= $nombre[$n] . " ";
-            }
-            $nom = trim($nom);
-        }
-<<<<<<< HEAD
-
-=======
->>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
         return $nom;
-    }
+        }
+
+
+
 
     /**
      * @param $nombre algo del tipo
-<<<<<<< HEAD
      *       Rodríguez    Dilla,  Pablo
      * @retuer $nom   el nombre ordenado en mayúsculas y con un caracter en blanco entre cada identificador del nombre
      *       PABLO RODRIGUEZ DILLA
      *
      */
-    private  function ordena_nombre($nombre)
-    {setlocale(LC_CTYPE, 'es_ES');
-=======
-     *       Rodríguez    Ruiz,  Fernando
-     * @retuer $nom   el nombre ordenado en mayúsculas y con un caracter en blanco entre cada identificador del nombre
-     *       FERNANDO RUIZ RODRIGUEZ
-     *
-     */
-    private
     function ordena_nombre($nombre)
     {
->>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
         //Separo nombre y apellido por la coma
         $nom = explode(",", $nombre);
         //Ahora me quedo con cada indentificaor por orde
@@ -244,11 +196,8 @@ class Alumno
                 $nom .= trim(mb_strtoupper($apellido, "utf-8")) . " ";
         }
 
-<<<<<<< HEAD
         return $nom;
-=======
         return trim($nom);
->>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
     }
 
 
@@ -263,21 +212,15 @@ class Alumno
      * La celda tiene siempre este formato
      *
      * --------------------------------------------------------------------------------------
-<<<<<<< HEAD
      * Dña. CARMEN PARICIO HERNANDEZ, Secretaria del Centro Público Integrado de Formación Profesional LOS ENLACES
-=======
      * Dña. xxxxxxxxxxxxxxxx, Secretaria del Centro Público Integrado de Formación Profesional LOS ENLACES
->>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
      * con código de centro 50010314, dirección Cl. Jarque De Moncayo, 10, 50012 Zaragoza (Zaragoza), teléfono 976300804 y
      * correo electrónico cpilosenlaces@educa.aragon.es
      *
      * CERTIFICA:
      *
-<<<<<<< HEAD
      * Que JOSÉ ANTONIO ANDREU RUBIO con DNI 76920305W, nacido el 11 de febrero de 1986, está matriculado en el centro
-=======
      * Que xxxxxxxxxxxxxxxx con DNI xxxxxxxxxxxxx, nacido el xx de febrero de 1986, está matriculado en el centro
->>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
      * LOS ENLACES en DESARROLLO DE APLICACIONES WEB DE CICLOS FORMATIVOS DE FORMACIÓN
      * PROFESIONAL DE GRADO SUPERIOR, regulado por el Real Decreto 686/2010 (BOE 12/06/2010) y por Orden de
      * 08/07/2011 (BOA 28/07/2011), y que:"
@@ -292,27 +235,21 @@ class Alumno
      *                          en la columna H la nota de ese módulo
      * Ejemplos:
      * ----------------------------------------------------------------------------
-<<<<<<< HEAD
      * 0487    Entornos de desarrollo (1º)                                    7
      * 0617    Formación y orientación laboral (1º)                            CV-5
      * 0373    Lenguajes de marcas y sistemas de gestión de información (1º)    8
      * 0483    Sistemas informáticos (1º)                                        7
-=======
      * 0487    Entornos de desarrollo (1º)                                    9
      * 0617    Formación y orientación laboral (1º)                            CV-5
      * 0373    Lenguajes de marcas y sistemas de gestión de información (1º)    9
      * 0483    Sistemas informáticos (1º)                                        9
->>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
      * ----------------------------------------------------------------------------
      *
      * La  primera fila que no tiene código empieza siempre por Y
      *
      * ----------------------------------------------------------------------------
-<<<<<<< HEAD
      * Y, con fecha 15 de noviembre de 2018, ha hecho la solicitud para traslado de expediente u otros efectos.
-=======
      * Y, con fecha XX de noviembre de 2018, ha hecho la solicitud para traslado de expediente u otros efectos.
->>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
      * ----------------------------------------------------------------------------
      *
      */
@@ -359,10 +296,10 @@ class Alumno
     function setNotasCertificado($worksheet, $modulos)
     {
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
+
+
+
         $n = 1;
         $alumnos = [];
 
@@ -375,7 +312,7 @@ class Alumno
             //Si tiene la palabra CERTIFICA es que ahí está el nombre
             if (strpos($valor, "CERTIFICA") > 1) {
                 $datos = explode(" ", $valor);
-<<<<<<< HEAD
+
                 $nombre = $datos[34] . " " . $datos[35] . " " . $datos[36];
 
                 $n++;
@@ -385,14 +322,13 @@ class Alumno
                 //Ojo con cambiar también las mayúsculas acentuadas.
                 $nombre = mb_strtoupper($nombre,"utf-8");
                 //var_dump($nombre);
-=======
+
 
                 $nombre = $datos[34] . " " . $datos[35] . " " . $datos[36];
                 $n++;
                 if ($datos[37] != "con")
                     $nombre .= " " . $datos[37];
                 $nombre = strtoupper($nombre);
->>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
 
                 //11 filas después comienzan los módulos
                 $f += 11;
@@ -507,17 +443,16 @@ class Alumno
                 $valor = $w->getCellByColumnAndRow((4 + $i), $f)->getValue();
                 //echo "<h1>$valor</h1>";
                 $c = $color->getEndColor()->getRGB();
-<<<<<<< HEAD
+
 //                var_dump($c);
                     if (is_null($valor)) //Esto es que está matriculado
                         //if ($c == "FFFFFF")
                         if ($c == "000000")
                             $modulos[$modulo] = "MATRICULADO";
-=======
+
                 if ($c == "FFFFFF")
                     if (is_null($valor)) //Esto es que está matriculado
                         $modulos[$modulo] = "MATRICULADO";
->>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
                     else
                         $modulos[$modulo] = $valor;
                 else

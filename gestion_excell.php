@@ -10,15 +10,14 @@ use Enlaces\Alumno;
 use Enlaces\Certificado;
 use Enlaces\Modulo;
 
-<<<<<<< HEAD
+
 //ini_set('display_errors', 1);
 //ini_set('display_startup_errors', 1);
 //error_reporting(E_ALL);
-=======
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
->>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
 
 /*
 /*
@@ -58,28 +57,27 @@ if (isset($_POST['submit'])) {
     switch ($_POST['submit']) {
         case "Cargar ficheros": //Quiero cargar ficheros de actillas y certificados
             $actilla = $_FILES['actilla'];
-<<<<<<< HEAD
+
             var_dump($actilla);
             $certificado = $_FILES['certificado'];
             var_dump($certificado);
             //Solo si he aportado los dos ficheros
             if (!(empty($actilla['name'])) || !(empty($certificado['name']))) {
-                $alumno_obj =  new Alumno();
-                $certificado_obj =  new Certificado();
-                $modulo_obj =  new Modulo();
+                $alumno_obj = new Alumno();
+                $certificado_obj = new Certificado();
+                $modulo_obj = new Modulo();
+            }
 
-=======
             $certificado = $_FILES['certificado'];
             //Solo si he aportado los dos ficheros
             if (!(empty($actilla['name'])) || !(empty($certificado['name']))) {
->>>>>>> 01f5fcc47ac63bb33d873be9bb751e3a21e37f61
                 $certificado_obj->copiar_ficheros($actilla, $certificado);
                 $actualizar = true;//Para cambiar las siglas
             }
             $ficheros = "true"; //Para Vue
             $modulo_obj->setInicializado(false); //Posiblemente he cambiado de ciclo
             break;
-        case "Asignar siglas":
+        case 'Asignar siglas':
             //Los datos me vienen por post
             $siglas = $_POST["siglas"];
             $siglas_asignadas = "true";//Para cambiar las siglas
@@ -106,7 +104,9 @@ $certificado_obj->obtener_datos();
 
 
 //Necesitamos esta información
-if ($certificado_obj->getEstado()) {//Si tengo los ficheros para hacer el informe
+//Si tengo el fichero de ceritificado el informe
+//Si no tengo el de certificado (o si sí que lo tengo) igual para el de actillas
+if ($certificado_obj->get_file_cetificado()) {
     if (is_null($certificado_obj->getTitleCiclo())) {
         $certificado_obj->setTitleCiclo();
     }

@@ -14,7 +14,8 @@ Class Certificado
      private $certificado = "./ficheros/certificado.xls";
      private $actilla = "./ficheros/actilla.xls";
      private $title_ciclo=null;
-     private $estado = false;//Atributo para saber si existen o no ficheros para generar informe
+    //Atributo para saber si existen o el fichero de certificado para generar informe
+     private static $file_cetificado= false;
 
 
     /**
@@ -102,9 +103,11 @@ Class Certificado
 
 
 
-     public function getEstado()
-    {
-        return $this->estado;
+    public static  function set_file_cetificado($file){
+         self::$file_cetificado = $file;
+    }
+    public static  function get_file_cetificado(){
+        return self::$file_cetificado;
     }
 
     public function getCertificado(){

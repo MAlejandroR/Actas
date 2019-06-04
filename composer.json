@@ -6,6 +6,7 @@
     }
   },
   "require": {
-    "phpoffice/phpspreadsheet": "^1.5"
+    "phpoffice/phpspreadsheet": "^1.7",
+    "phpunit/phpunit": "3.7.*"
   }
 }
