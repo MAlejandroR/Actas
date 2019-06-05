@@ -103,10 +103,10 @@ Class Certificado
 
 
 
-    public static  function set_file_cetificado($file){
+    public static  function set_file_certificado($file){
          self::$file_cetificado = $file;
     }
-    public static  function get_file_cetificado(){
+    public static  function get_file_certificado(){
         return self::$file_cetificado;
     }
 
