@@ -7,7 +7,7 @@ require_once "funciones.php"; //Esto habrá que quitarlo si no hay funciones
 
 use  PhpOffice\PhpSpreadsheet\Spreadsheet;
 use Enlaces\Alumno;
-use Enlaces\Certificado;
+use Enlaces\Ficheros;
 use Enlaces\Modulo;
 
 
@@ -22,7 +22,7 @@ error_reporting(E_ALL);
 /*
 /*
 use App\Alumno;
-use App\Certificado;
+use App\Ficheros;
 use App\Modulo;
 
 
@@ -47,7 +47,7 @@ $ficheros = "true";
 
 //Variables para mantener la información para otras páginas
 $alumno_obj = isset($_SESSION['alumno_obj']) ? unserialize($_SESSION['alumno_obj']) : new Alumno();
-$certificado_obj = isset($_SESSION['certificado_obj ']) ? unserialize($_SESSION['certificado_obj']) : new Certificado();
+$certificado_obj = isset($_SESSION['certificado_obj ']) ? unserialize($_SESSION['certificado_obj']) : new Ficheros();
 $modulo_obj = isset($_SESSION['modulo_obj']) ? unserialize($_SESSION['modulo_obj']) : new Modulo();
 
 
@@ -64,7 +64,7 @@ if (isset($_POST['submit'])) {
             //Solo si he aportado los dos ficheros
             if (!(empty($actilla['name'])) || !(empty($certificado['name']))) {
                 $alumno_obj = new Alumno();
-                $certificado_obj = new Certificado();
+                $certificado_obj = new Ficheros();
                 $modulo_obj = new Modulo();
             }
 
@@ -106,7 +106,9 @@ $certificado_obj->obtener_datos();
 //Necesitamos esta información
 //Si tengo el fichero de ceritificado el informe
 //Si no tengo el de certificado (o si sí que lo tengo) igual para el de actillas
-if ($certificado_obj->get_file_cetificado()) {
+
+
+if ($certificado_obj->get_certificado()) {
     if (is_null($certificado_obj->getTitleCiclo())) {
         $certificado_obj->setTitleCiclo();
     }

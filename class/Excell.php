@@ -10,7 +10,7 @@ use PhpOffice\PhpSpreadsheet\Style\Fill as Relleno;
 use PhpOffice\PhpSpreadsheet\Style\Border as Borde;
 
 use Enlaces\Alumno;
-use Enlaces\Certificado;
+use Enlaces\Ficheros;
 use Enlaces\Modulo;
 
 

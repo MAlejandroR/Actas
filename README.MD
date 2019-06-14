@@ -9,3 +9,5 @@
  * Para poder ponerlo en funcionamiento se necesitan dos ficheros excell que genra el sigad:
   1.- El actilla (documentos generado por el tutor)
   2.- El acta de años anteriores (documentos que han de generar en jefatura)
+
+Revisar MRM_PEND

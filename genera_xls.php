@@ -18,7 +18,7 @@ use PhpOffice\PhpSpreadsheet\Style\Fill;
 use PhpOffice\PhpSpreadsheet\Style\Border;
 
 use Enlaces\Alumno;
-use Enlaces\Certificado;
+use Enlaces\Ficheros;
 use Enlaces\Modulo;
 use Enlaces\Excell;
 
